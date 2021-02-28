@@ -1,6 +1,26 @@
 // from data.js
 var tableData = data;
 
+
+//---------------------------------------------------------------
+// filters
+// function to return unique values
+function returnUnique(value, index, self) {
+    return self.indexOf(value) === index;
+};
+
+// arrays to apply filters to
+var date_array = tableData.map(tableData => tableData.datetime);
+var date_unique_values = date_array.filter(returnUnique);
+var city_array = tableData.map(tableData => tableData.city);
+var city_unique_values = city_array.filter(returnUnique);
+var state_array = tableData.map(tableData => tableData.state);
+var state_unique_values = state_array.filter(returnUnique);
+var country_array = tableData.map(tableData => tableData.country);
+var country_unique_values = country_array.filter(returnUnique);
+var shape_array = tableData.map(tableData => tableData.shape);
+var shape_unique_values = shape_array.filter(returnUnique);
+
 //---------------------------------------------------------------
 // definition of variables
 // defining the input field
