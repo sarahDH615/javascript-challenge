@@ -26,7 +26,7 @@ function initialFill(dataset, class_selector, id_label) {
     });
 }
 
-initialFill(date_unique_values, 'dt_menu', 'dt');
+initialFill(date_unique_values, 'dt_menu', 'datetime');
 initialFill(city_unique_values, 'city_menu', 'city');
 initialFill(state_unique_values, 'state_menu', 'state');
 initialFill(country_unique_values, 'country_menu', 'country');
@@ -39,7 +39,7 @@ initialFill(shape_unique_values, 'shape_menu', 'shape');
 //var dt_dropdown = d3.select('.dt_menu')
 //---------------------------------------------------------------
 filter_obj = {
-    'dt': '',
+    'datetime': '',
     'city': '',
     'state': '',
     'country': '',
@@ -49,15 +49,34 @@ filter_obj = {
 function clickReact() {
     // prevent page reload
     d3.event.preventDefault();
+
+    d3.select('tbody').text('');
     // define user input
     // chosen value
     var this_text = d3.select(this).text();
     // type of restriction it belongs to
     var this_class = d3.select(this).attr('class').split(' ')[1];
-    // console.log(this_text);
-    // console.log(this_class);
     
     filter_obj[`${this_class}`] = `${this_text}`
+
+    Object.keys(filter_obj).forEach(function(key) {
+        // if value is not empty
+        if (filter_obj[key] != '') {
+            //console.log(filter_obj[key]);
+            filteredEvents = filteredEvents.filter(incident => incident[key] == filter_obj[key]);
+            filteredEvents.forEach((incident) => {
+                var tr = d3.select('tbody').append('tr');
+                tr.append('td').text(incident.datetime);
+                tr.append('td').text(incident.city);
+                tr.append('td').text(incident.state);
+                tr.append('td').text(incident.country);
+                tr.append('td').text(incident.shape);
+                tr.append('td').text(incident.durationMinutes);
+                tr.append('td').text(incident.comments);
+                });
+        };
+        
+    });
     // filter data to match input date
     // var filteredEvents = tableData.filter(incident => incident.datetime == chosenDate);
     // for each row of filtered data, 
