@@ -38,13 +38,8 @@ initialFill(shape_unique_values, 'shape_menu', 'shape');
 // defining the dropdowns
 //var dt_dropdown = d3.select('.dt_menu')
 //---------------------------------------------------------------
-filter_obj = {
-    'datetime': '',
-    'city': '',
-    'state': '',
-    'country': '',
-    'shape': ''
-}
+var new_data = []
+filter_obj = {}
 // defining funct to match input date with data dates
 function clickReact() {
     // prevent page reload
@@ -56,27 +51,57 @@ function clickReact() {
     var this_text = d3.select(this).text();
     // type of restriction it belongs to
     var this_class = d3.select(this).attr('class').split(' ')[1];
-    
-    filter_obj[`${this_class}`] = `${this_text}`
 
-    Object.keys(filter_obj).forEach(function(key) {
-        // if value is not empty
-        if (filter_obj[key] != '') {
-            //console.log(filter_obj[key]);
-            filteredEvents = filteredEvents.filter(incident => incident[key] == filter_obj[key]);
-            filteredEvents.forEach((incident) => {
-                var tr = d3.select('tbody').append('tr');
-                tr.append('td').text(incident.datetime);
-                tr.append('td').text(incident.city);
-                tr.append('td').text(incident.state);
-                tr.append('td').text(incident.country);
-                tr.append('td').text(incident.shape);
-                tr.append('td').text(incident.durationMinutes);
-                tr.append('td').text(incident.comments);
-                });
-        };
+    filter_obj[this_class] = this_text;
+
+    if(Object.keys(filter_obj).length == 1) {
+        new_data = tableData.filter(incident => incident[this_class] == filter_obj[this_class]);
+        new_data.forEach((incident) => {
+            var tr = d3.select('tbody').append('tr');
+            tr.append('td').text(incident.datetime);
+            tr.append('td').text(incident.city);
+            tr.append('td').text(incident.state);
+            tr.append('td').text(incident.country);
+            tr.append('td').text(incident.shape);
+            tr.append('td').text(incident.durationMinutes);
+            tr.append('td').text(incident.comments);
+            });
+    } else if ((Object.keys(filter_obj).length > 1) && (new_data.filter(incident => incident[this_class] == filter_obj[this_class])).length == 0) {
+        d3.select('tbody').append('tr').text('no results found');
+    } else if (Object.keys(filter_obj).length > 1) {
+        var new_new_data = new_data.filter(incident => incident[this_class] == filter_obj[this_class]);
+        new_new_data.forEach((incident) => {
+            var tr = d3.select('tbody').append('tr');
+            tr.append('td').text(incident.datetime);
+            tr.append('td').text(incident.city);
+            tr.append('td').text(incident.state);
+            tr.append('td').text(incident.country);
+            tr.append('td').text(incident.shape);
+            tr.append('td').text(incident.durationMinutes);
+            tr.append('td').text(incident.comments);
+            });
+    }
+
+    // const allIncidents = tableData;
+
+    // Object.keys(filter_obj).forEach(function(key) {
+    //     // if value is not empty
+    //     if (filter_obj[key] != '') {
+    //         //console.log(filter_obj[key]);
+    //         filteredEvents = filteredEvents.filter(incident => incident[key] == filter_obj[key]);
+            // filteredEvents.forEach((incident) => {
+            //     var tr = d3.select('tbody').append('tr');
+            //     tr.append('td').text(incident.datetime);
+            //     tr.append('td').text(incident.city);
+            //     tr.append('td').text(incident.state);
+            //     tr.append('td').text(incident.country);
+            //     tr.append('td').text(incident.shape);
+            //     tr.append('td').text(incident.durationMinutes);
+            //     tr.append('td').text(incident.comments);
+            //     });
+    //     };
         
-    });
+    // });
     // filter data to match input date
     // var filteredEvents = tableData.filter(incident => incident.datetime == chosenDate);
     // for each row of filtered data, 
