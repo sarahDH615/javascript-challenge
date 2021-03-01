@@ -11,63 +11,88 @@
 </head>
 
 <body>
-    <div class='container'>
-        <h1>UFO Sightings</h1>
-        <!-- <div class='dropdown-area'></div> -->
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id='datetime-dropdown' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Date/Time
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button">Action</button>
-              <button class="dropdown-item" type="button">Another action</button>
-              <button class="dropdown-item" type="button">Something else here</button>
-            <!-- end of dropdown-menu class -->
-            </div>
-        
-            <button class="btn btn-primary dropdown-toggle" type="button" id="city-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                City
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Action</button>
-                <button class="dropdown-item" type="button">Another action</button>
-                <button class="dropdown-item" type="button">Something else here</button>
-            <!-- end of dropdown-menu class -->
-            </div>
-
-            <button class="btn btn-primary dropdown-toggle" type="button" id="state-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                State
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Action</button>
-                <button class="dropdown-item" type="button">Another action</button>
-                <button class="dropdown-item" type="button">Something else here</button>
-            <!-- end of dropdown-menu class -->
-            </div>
-
-            <button class="btn btn-primary dropdown-toggle" type="button" id="country-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Country
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Action</button>
-                <button class="dropdown-item" type="button">Another action</button>
-                <button class="dropdown-item" type="button">Something else here</button>
-            <!-- end of dropdown-menu class -->
-            </div>
-
-            <button class="btn btn-primary dropdown-toggle" type="button" id="shape-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Shape
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Action</button>
-                <button class="dropdown-item" type="button">Another action</button>
-                <button class="dropdown-item" type="button">Something else here</button>
-            <!-- end of dropdown-menu class -->
-            </div>
-        <!-- end of dropdown div -->
+    <!-- nav bar w/ title and image -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img src="static/images/rocket-1976107_640.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      UFO Sightings
+        </a>
+    </nav>
+    <!-- nav bar w/ dropdown menus of filters -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- brand w/ title -->
+        <a class="navbar-brand" href="#">Sighting Filters</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- dropdown menus, each dropdown an li -->
+        <!-- ones w/ longer lists vertically scroll -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Date/Time
+                </a> 
+                <div class="dropdown-menu dt_menu force-scroll" aria-labelledby="navbarDropdown">
+                    <!-- js gen list of d/ts -->
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  City
+                </a>
+                <div class="dropdown-menu city_menu force-scroll" aria-labelledby="navbarDropdown">
+                  <!-- js gen list of unique cities to go here -->
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  State
+                </a>
+                <div class="dropdown-menu state_menu force-scroll" aria-labelledby="navbarDropdown">
+                  <!-- js gen list of unique states -->
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Country
+                </a>
+                <div class="dropdown-menu country_menu" aria-labelledby="navbarDropdown">
+                  <!-- js gen list of unique countries -->
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Shape
+                </a>
+                <div class="dropdown-menu shape_menu force-scroll" aria-labelledby="navbarDropdown">
+                  <!-- js gen list of unique shapes -->
+                </div>
+            </li>
+          </ul>
         </div>
-    <!-- end of div container -->
-    </div>
+      </nav>
+      <div class='container'>
+          <div class='row'>
+              <div class='col-12'>
+                <div id="table-area" class="">
+                    <table id="ufo-table" class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th class="table-head">Date</th>
+                          <th class="table-head">City</th>
+                          <th class="table-head">State</th>
+                          <th class="table-head">Country</th>
+                          <th class="table-head">Shape</th>
+                          <th class="table-head">Duration</th>
+                          <th class="table-head">Comments</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+              </div>
+          </div>
+      </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
