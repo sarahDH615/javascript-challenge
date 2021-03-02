@@ -27,18 +27,29 @@ function fillTable() {
         // append each piece of data to a new table datum
     filteredEvents.forEach((incident) => {
         var tr = d3.select('tbody').append('tr');
-        tr.append('td').text(incident.datetime);
-        tr.append('td').text(incident.city);
-        tr.append('td').text(incident.state);
-        tr.append('td').text(incident.country);
-        tr.append('td').text(incident.shape);
-        tr.append('td').text(incident.durationMinutes);
-        tr.append('td').text(incident.comments);
+        tr.append('td').text(incident.datetime).style('color', 'white');
+        tr.append('td').text(incident.city).style('color', 'white');
+        tr.append('td').text(incident.state).style('color', 'white');
+        tr.append('td').text(incident.country).style('color', 'white');
+        tr.append('td').text(incident.shape).style('color', 'white');
+        tr.append('td').text(incident.durationMinutes).style('color', 'white');
+        tr.append('td').text(incident.comments).style('color', 'white');
         });
 }
 //---------------------------------------------------------------
 // event listeners
-    // for keyup in the input box
+    // for pressing enter in the input box
 form.on('submit', fillTable);
     // for click of button
 button.on('click', fillTable);
+
+// reset event listener
+// reset button
+// trigger reset
+var reset_button = d3.select('.reset_button');
+reset_button.on('click', function() {
+    // prevent page reload
+    event.preventDefault();
+    // clear out the table
+    d3.select('tbody').text('');
+});
