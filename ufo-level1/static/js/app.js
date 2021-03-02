@@ -4,10 +4,10 @@ var tableData = data;
 //---------------------------------------------------------------
 // definition of variables
 // defining the input field
-var form_box = d3.select('#datetime');
+var input_box = d3.select('#datetime');
 
 // defining the button
-var button = d3.select('#filter-btn')
+var button = d3.select('.form-button')
 
 // defining the form
 var form = d3.select('form')
@@ -15,10 +15,11 @@ var form = d3.select('form')
 // defining funct to match input date with data dates
 function fillTable() {
     // prevent page reload
-    d3.event.preventDefault();
+    event.preventDefault();
     // define user input
-    var chosenDate = form_box.node().value;
-    
+    var chosenDate = input_box.node().value;
+    // clear current table values
+    d3.select('tbody').text('');
     // filter data to match input date
     var filteredEvents = tableData.filter(incident => incident.datetime == chosenDate);
     // for each row of filtered data, 

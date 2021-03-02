@@ -15,8 +15,13 @@ body {
   background-color: rgb(80, 1, 60);
 }
 
-
+/* having the page name be white... */
 .navbar-brand {
+  color: white;
+}
+
+/* ...and remain so with hovering */
+.navbar-brand:hover {
   color: white;
 }
 
