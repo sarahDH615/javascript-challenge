@@ -1,13 +1,26 @@
 /* vertical scrollbar in dropdowns */
 .force-scroll {
   overflow-y: scroll;
-  height: 200px;
+  height: min-content;
+  max-height: 200px;
 }
 
-/* #behind-text {
-  z-index: -1;
-} */
-
+/* background image for body */
 body {
   background-image: url('../images/eclipse-1492818.jpg');
+}
+
+/* giving the top navbar text a more legible colour */
+.navtitle {
+  background-color: rgb(80, 1, 60);
+}
+
+
+.navbar-brand {
+  color: white;
+}
+
+/* moving container elements downwards a small bit */
+.container {
+  padding-top: 30px;
 }
