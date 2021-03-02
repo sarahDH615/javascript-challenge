@@ -34,8 +34,6 @@ function baseFill() {
     choiceFill(country_unique_values, 'country_menu', 'country');
     choiceFill(shape_unique_values, 'shape_menu', 'shape');
 };
-
-baseFill();
 //-----------------------------------------------------------------------------------------------------------
 // click event function
 // array to hold first filter applied
@@ -47,7 +45,7 @@ function clickReact() {
     // prevent page reload
     d3.event.preventDefault();
 
-    // remove any existing table
+    // remove any existing table rows
     d3.select('tbody').text('');
 
     // define user input
@@ -127,6 +125,8 @@ function clickReact() {
 var reset_button = d3.select('.trigger-reset');
 
 reset_button.on('click', function() {
+    // prevent page reload
+    d3.event.preventDefault();
     // clear out the table
     d3.select('tbody').text('');
     // empty the dictionary
