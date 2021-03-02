@@ -89,8 +89,6 @@ function clickReact() {
         choiceFill(state_unique_values, 'state_menu', 'state');
         choiceFill(country_unique_values, 'country_menu', 'country');
         choiceFill(shape_unique_values, 'shape_menu', 'shape');
-
-        var option_boxes = d3.select('.dropdown-menu').style('height', 'auto;').style('overflow', 'hidden');
     // if there is more than one filter...
     // ... but the filters clash, return 'no results found'
     } else if ((Object.keys(filter_obj).length > 1) && (new_data.filter(incident => incident[this_class] == filter_obj[this_class])).length == 0) {
@@ -122,8 +120,6 @@ function clickReact() {
         choiceFill(state_unique_values, 'state_menu', 'state');
         choiceFill(country_unique_values, 'country_menu', 'country');
         choiceFill(shape_unique_values, 'shape_menu', 'shape');
-
-        var option_boxes = d3.select('.dropdown-menu').style('height', 'auto;').style('overflow', 'hidden');
     }
 };
 //-----------------------------------------------------------------------------------------------------------
