@@ -1,24 +1,29 @@
+/* navbar text */
 .navbar-brand {
   width: max-content;
   color: white;
 }
 
+/* background for page */
 body {
   background-color: lightslategray;
 }
 
+/* image styling */
 .jumbotron{
   background-image: url('../images/earth-1756274_1920.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 200px;
+  height: 300px;
 }
 
+/* text on the image */
 .jumbo-text {
   color: white;
-  padding-top: 80px;
+  padding-top: 110px;
 }
 
+/* styling for input form */
 form {
   background-color: white;
   border-style: solid;
@@ -31,11 +36,18 @@ form {
   padding-right: 30px;
   margin-top: 30px;
 }
-
-label, input, .form-button {
+/* margins for items in the input form */
+label, input, .form-button, .reset_button {
   margin-bottom: 10px;
 }
 
+/* table stylings */
 table {
   margin-top: 30px;
+  background-color: transparent;
+}
+/* table header styling */
+.theader {
+  color: rgb(90, 103, 116);
+  background-color: white;
 }
