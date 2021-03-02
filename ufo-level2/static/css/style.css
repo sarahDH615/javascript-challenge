@@ -1,9 +1,13 @@
 /* vertical scrollbar in dropdowns */
 .force-scroll {
-
   overflow-y: scroll;
-  
   height: 200px;
-  
 }
-  
+
+/* #behind-text {
+  z-index: -1;
+} */
+
+body {
+  background-image: url('../images/eclipse-1492818.jpg');
+}
