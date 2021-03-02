@@ -19,6 +19,7 @@ function choiceFill(dataset, class_selector, id_label) {
 }
 
 // initial/reset dropdowns
+// function to filly dropdowns
 function baseFill() {
 // arrays to apply filters to
     var date_unique_values = tableData.map(tableData => tableData.datetime).filter(returnUnique);
@@ -34,6 +35,8 @@ function baseFill() {
     choiceFill(country_unique_values, 'country_menu', 'country');
     choiceFill(shape_unique_values, 'shape_menu', 'shape');
 };
+// calling the function to do the initial fill
+baseFill();
 //-----------------------------------------------------------------------------------------------------------
 // click event function
 // array to hold first filter applied
