@@ -11,7 +11,7 @@ body {
 
 /* image styling */
 .jumbotron{
-  background-image: url('../images/earth-1756274_1920.jpg');
+  background-image: url('../images/earth.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 300px;
