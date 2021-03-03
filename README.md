@@ -26,21 +26,52 @@
 
 ### description
 
-The purpose of this project was to create two HTML pages, one with filters on the date only (ufo-level1), the other providing multiple filters (ufo-level2), to display UFO sighting information based on user input. 
+The purpose of this project was to create two HTML pages, one with filters on the date only (ufo-level1), the other providing multiple filters (ufo-level2), to display UFO sighting information based on user input. Described below are the steps taken to create each page.
 
 #### ufo-level1
 
 - create a HTML base page
-    - using Bootstrap styling classes, create a page containing:
-        - a form for entering the desired date with a button to submit the form
+    - using Bootstrap styling classes, create a page that is responsive, containing:
+        - a form for entering the desired date with a button to submit the form, and a button to reset the table
         - an empty table to be populated with the results of the filtered data
         - links to the JavaScript data and app files
+        - a navigation bar containing an image and a page title
+        - a banner image with text
 - create a JavaScript file that fills in the empty table on the HTML page
-    - create event listeners on: 1) clicking the button within the form, 2) hitting enter within the input field
+    - create event listeners on: 1) clicking the 'filter' button within the form, 2) hitting enter within the input field
     - create an event listener on clicking the 'reset' button within the form
     - create a function to populate the table that:
         - prevents page reload
         - filters the data.js file to only return incidents that match the chosen date
         - creates a new row for every relevant incident returned from the data.js file
         - appends each item within a row of data as a table datum (td) on the index.html page
+- create a CSS file that does additonal styling on the index.html page, including adding a background image to the banner
+
 #### ufo-level2
+
+- create a HTML base page
+    - using Bootstrap styling classes, create a page that is responsive, containing:
+        - two navigation bars:
+            - one containing an image and a page title
+            - the other containing dropdown menus for the filters (date, city, state, country, shape), to be populated using JavaScript; and a 'reset' button
+        - an empty table to be populated with the results of the filtered data
+        - links to the JavaScript data and app files
+- create a JavaScript file that fills in the empty table on the HTML page
+    - create an event listener on clicking the 'reset' button within the form, with a function attached that:
+        - prevents page reload
+        - empties the records of previous clicks (filter_obj)
+        - empties the table results
+        - resets the dropdown menus
+    - populate the dropdown menus and create event listeners on each individual item
+        - create a function (returnUnique) that returns unique values from any column of data
+        - create a function (choiceFill) that removes any existing text in the dropdowns, and adds new values, each with an event listener for if that value is clicked upon
+        - create a function (baseFill) that calls returnUnique and choiceFill on the columns of data in the dropdowns (date, city, state, country, shape)
+        - call baseFill()
+    - populate the table:
+        - create a function that:
+            - prevents page reload
+            - identifies the item clicked on
+            - creates a record of the past clicks since the table has been reset (filter_obj)
+            - filters the data based on the item clicked on, and any previous clicks stored in filter_obj
+            - updates the dropdown menus to the values left after filtration
+- create a CSS file that does additonal styling on the index.html page, including adding a background image to the body of the page
