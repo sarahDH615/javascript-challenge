@@ -19,7 +19,7 @@ function choiceFill(dataset, class_selector, id_label) {
 }
 
 // initial/reset dropdowns
-// function to filly dropdowns
+// function to fill dropdowns
 function baseFill() {
 // arrays to apply filters to
     var date_unique_values = tableData.map(tableData => tableData.datetime).filter(returnUnique);
@@ -54,7 +54,8 @@ function clickReact() {
     // define user input
     // chosen value
     var this_text = d3.select(this).text();
-    // type of restriction it belongs to
+    // type of restriction it belongs to, 
+        // (ignoring the first class, which relates to it being a dropdown item)
     var this_class = d3.select(this).attr('class').split(' ')[1];
 
     // append to obj
@@ -90,11 +91,7 @@ function clickReact() {
         choiceFill(state_unique_values, 'state_menu', 'state');
         choiceFill(country_unique_values, 'country_menu', 'country');
         choiceFill(shape_unique_values, 'shape_menu', 'shape');
-    // if there is more than one filter...
-    // ... but the filters clash, return 'no results found'
-    } else if ((Object.keys(filter_obj).length > 1) && (new_data.filter(incident => incident[this_class] == filter_obj[this_class])).length == 0) {
-        d3.select('tbody').append('tr').text('no results found');
-    // ... and the filters work together, apply a filter on new_data and output a table
+    // if there is more than one filter, apply a filter on new_data and output a table
     } else if (Object.keys(filter_obj).length > 1) {
         var new_new_data = new_data.filter(incident => incident[this_class] == filter_obj[this_class]);
         new_new_data.forEach((incident) => {
