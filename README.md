@@ -30,6 +30,8 @@ The purpose of this project was to create two HTML pages, one with filters on th
 
 #### ufo-level1
 
+![UFO Level 1 Loop](/images/ufo1Loop.gif)
+
 - create a HTML base page
     - using Bootstrap styling classes, create a page that is responsive, containing:
         - a form for entering the desired date with a button to submit the form, and a button to reset the table
@@ -48,6 +50,8 @@ The purpose of this project was to create two HTML pages, one with filters on th
 - create a CSS file that does additonal styling on the index.html page, including adding a background image to the banner
 
 #### ufo-level2
+
+![UFO Level 2 Loop](/images/ufo2Loop.gif)
 
 - create a HTML base page
     - using Bootstrap styling classes, create a page that is responsive, containing:
