@@ -85,17 +85,17 @@ The most challenging aspect of this project was creating the responsive dropdown
 Relatedly, another issue was considering how to deal with multiple filters placed one after the other. Storing the choices in a JavaScript object enabled tracking the history of choices the user made, so one layer of filtering could be applied after another. There were two potential solutions to dealing with clashing filters: displaying 'no results found' and inviting the user to reset the filters and try again; or progressively limiting the items in the dropdown menus as each filter was set. The second option was chosen, as it provided the user with more information as to what they could choose, rather than simply telling them they made a bad choice. 
 
 <p align="center">
-  <img width="800" height="90" alt='Initial Filter' src="/images/initialFilter.png">
+  <img width="800" height="50" alt='Initial Filter' src="/images/initialFilter.png">
 </p>
 <p><em>Procedure if only one filter is applied.</em></p>
 
 <p align="center">
-  <img width="800" height="90" alt='Additional Filters' src="/images/addtlFilters.png">
+  <img width="800" height="50" alt='Additional Filters' src="/images/addtlFilters.png">
 </p>
 <p><em>Procedure if multiple filters are in place.</em></p>
 
 Another difficult aspect was deciding where to put event listeners in ufo-level2's app.js. If the event listener was assigned to the containing element (each dropdown menu), it would not capture the individual choice. Meanwhile, assigning each dropdown item separately would be impractical, due to the volume of items, except for within the eventual solution implemented, which was to assign an event listener when the item was being created. 
 
 <p align="center">
-  <img width="800" height="90" alt='Individual Event Listeners' src="/images/indivEventListeners.png">
+  <img width="800" height="50" alt='Individual Event Listeners' src="/images/indivEventListeners.png">
 </p>
