@@ -1,6 +1,6 @@
 ## javascript-challenge
 
-![UFO Level 2 Loop](/images/ufo2Loop.gif) *Screen capture from UFO Level 2*
+![UFO Level 2 Loop](/images/ufo2Loop.gif)
 
 ### contains
 - ufo-level1
