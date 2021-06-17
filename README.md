@@ -1,5 +1,9 @@
 ## javascript-challenge
 
+![UFO Level 2 Loop](/images/ufo2Loop.gif)
+
+*Screen capture from UFO Level 2*
+
 ### contains
 - ufo-level1
     - static: contains styling and Javascript elements for the level 1 HTML page
@@ -30,8 +34,6 @@ The purpose of this project was to create two HTML pages, one with filters on th
 
 #### ufo-level1
 
-![UFO Level 1 Loop](/images/ufo1Loop.gif)
-
 - create a HTML base page
     - using Bootstrap styling classes, create a page that is responsive, containing:
         - a form for entering the desired date with a button to submit the form, and a button to reset the table
@@ -50,8 +52,6 @@ The purpose of this project was to create two HTML pages, one with filters on th
 - create a CSS file that does additonal styling on the index.html page, including adding a background image to the banner
 
 #### ufo-level2
-
-![UFO Level 2 Loop](/images/ufo2Loop.gif)
 
 - create a HTML base page
     - using Bootstrap styling classes, create a page that is responsive, containing:
@@ -85,5 +85,8 @@ The purpose of this project was to create two HTML pages, one with filters on th
 The most challenging aspect of this project was creating the responsive dropdowns on ufo-level2 app.js. The main struggle within this task was grasping the concept of JavaScript filling in items on a HTML page. After understanding that the JavaScript file was able to access content on index.html, and return content to it, the next challenge was actually populating the dropdowns. Using a function that returned unique values, and one that appended values, the dropdowns could be populated.
 
 Relatedly, another issue was considering how to deal with multiple filters placed one after the other. Storing the choices in a JavaScript object enabled tracking the history of choices the user made, so one layer of filtering could be applied after another. There were two potential solutions to dealing with clashing filters: displaying 'no results found' and inviting the user to reset the filters and try again; or progressively limiting the items in the dropdown menus as each filter was set. The second option was chosen, as it provided the user with more information as to what they could choose, rather than simply telling them they made a bad choice. 
+![Initial Filter](/images/initialFilter.png)
+![Additional Filters](/images/addtlFilters.png)
 
 Another difficult aspect was deciding where to put event listeners in ufo-level2's app.js. If the event listener was assigned to the containing element (each dropdown menu), it would not capture the individual choice. Meanwhile, assigning each dropdown item separately would be impractical, due to the volume of items, except for within the eventual solution implemented, which was to assign an event listener when the item was being created. 
+![Individual Event Listeners](/images/indivEventListeners.png)
